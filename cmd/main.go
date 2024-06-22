@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	screen, err := artistic.NewScreen(10, 68, '.')
+	screen, err := artistic.NewScreen(200, 68, '.', ClearScreen)
 	if err != nil {
 		log.Fatal(err)
 	}
