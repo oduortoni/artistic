@@ -10,8 +10,18 @@ A program to perfoem graphics functions in the terminal while using pure golang 
 
  ```bash
     git clone https://github.com/oduortoni/artistic.git
+```
+
+run the program
+```bash
     cd artistic/cmd
     go run .
  ```
+
+ alternatively, you can (while in the root folder):
+
+ ```bash
+   make run
+```
 
  
