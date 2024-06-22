@@ -9,6 +9,7 @@ type Screen struct {
 	Width  int // 200
 	Height int // 68
 	grid   []byte
+	clear func()
 }
 
 func (screen *Screen) UpdateXY(xter byte, x, y, width, height int) {
@@ -25,6 +26,7 @@ func (screen *Screen) UpdateXY(xter byte, x, y, width, height int) {
 }
 
 func (screen *Screen) Display() {
+	screen.clear()
 	for i := 0; i < screen.Width*screen.Height; i++ {
 		if i%screen.Width == 0 {
 			fmt.Printf("\n\t\t%c", screen.grid[i])
@@ -32,15 +34,16 @@ func (screen *Screen) Display() {
 			fmt.Printf("%c", screen.grid[i])
 		}
 	}
-	fmt.Println()
+	fmt.Printf("\n\n")
 }
 
-func NewScreen(width, height int, space byte) (*Screen, error) {
+func NewScreen(width, height int, space byte, clear func()) (*Screen, error) {
 	if height > 20 && width > 30 {
 		screen := &Screen{
 			Width:  width,
 			Height: height,
 			grid:   make([]byte, height*width),
+			clear: clear,
 		}
 
 		for i := 0; i < screen.Height; i++ {
