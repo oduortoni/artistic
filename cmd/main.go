@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/oduortoni/artistic/artistic"
@@ -13,4 +14,23 @@ func main() {
 	}
 	screen.UpdateXY('+', 20, 40, 50, 10)
 	screen.Display()
+
+	v1, err := artistic.NewVector(1, 0, 0)
+	if err != nil {
+		log.Fatal(err)
+	}
+	v2, err := artistic.NewVector(0, 1, 0)
+	if err != nil {
+		log.Fatal(err)
+	}
+	rad := artistic.Angle(v1, v2)
+	deg := artistic.Angle_RadToDeg(rad)
+	fmt.Printf("\n\nRadian(%.2f) -> Deg(%.2f)\n", rad, deg)
+
+	cross := artistic.Cross(v1, v2)
+	fmt.Println(cross)
+
+	clone := artistic.Clone(cross)
+	fmt.Println(clone)
+	fmt.Println(artistic.Smul(clone, 4))
 }
