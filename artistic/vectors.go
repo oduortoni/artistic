@@ -99,31 +99,26 @@ func Length(v *Vector) float64 {
 func Normalize(v *Vector) *Vector {
 	if v.X != 0 || v.Y != 0 || v.Z != 0 {
 		length := Length(v)
-		return &Vector{
+		normal := &Vector{
 			X: v.X / length,
 			Y: v.Y / length,
 			Z: v.Z / length,
 		}
+		return normal
 	} else {
 		return Clone(v)
 	}
 }
 
 func Dot(v1, v2 *Vector) float64 {
-	v1 = Normalize(v1)
-	v2 = Normalize(v2)
-
 	return v1.X*v2.X + v1.Y*v2.Y + v1.Z*v2.Z
 }
 
 func Cross(v1, v2 *Vector) *Vector {
-	v1 = Normalize(v1)
-	v2 = Normalize(v2)
-
 	return &Vector{
-		X: v1.X*v2.Z - v1.Z*v2.Y,
+		X: v1.Y*v2.Z - v1.Z*v2.Y,
 		Y: v1.Z*v2.X - v1.X*v2.Z,
-		Z: v1.X*v2.Y - v1.X*v2.X,
+		Z: v1.X*v2.Y - v1.Y*v2.X,
 	}
 }
 

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	screen, err := artistic.NewScreen(200, 68, '.', ClearScreen)
+	screen, err := artistic.NewScreen(150, 68, '.', ClearScreen)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -19,6 +19,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	v2, err := artistic.NewVector(0, 1, 0)
 	if err != nil {
 		log.Fatal(err)
@@ -28,9 +29,13 @@ func main() {
 	fmt.Printf("\n\nRadian(%.2f) -> Deg(%.2f)\n", rad, deg)
 
 	cross := artistic.Cross(v1, v2)
-	fmt.Println(cross)
+	fmt.Println("Cross: ", cross)
 
 	clone := artistic.Clone(cross)
 	fmt.Println(clone)
 	fmt.Println(artistic.Smul(clone, 4))
+
+	// expect to be zero => orthogonal
+	dot := artistic.Dot(v1, v2)
+	fmt.Println("Dot: ", dot)
 }

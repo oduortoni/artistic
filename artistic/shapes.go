@@ -1,7 +1,7 @@
 package artistic
 
 type Point struct {
-	X, Y int
+	Vector
 	Figure byte
 }
 
