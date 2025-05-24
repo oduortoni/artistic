@@ -8,6 +8,13 @@ export default defineConfig({
         target: 'http://localhost:8000',
         changeOrigin: true
       }
+    },
+    hmr: {
+      host: 'localhost',
+      protocol: 'ws'
+    },
+    watch: {
+      usePolling: true
     }
   },
   plugins: [

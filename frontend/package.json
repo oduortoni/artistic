@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "serve:go": "cd .. && air",
-    "serve:vite": "vite",
+    "serve:vite": "vite --host",
     "dev": "concurrently \"npm run serve:go\" \"npm run serve:vite\""
   },
   "devDependencies": {
