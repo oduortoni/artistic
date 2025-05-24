@@ -59,3 +59,12 @@ lerna-debug.log*
 # Environment files
 .env.*
 !.env.example
+
+# PWA files
+**/dev-dist/
+**/generated/
+frontend/public/workbox-*.js
+frontend/public/sw.js.map
+frontend/public/workbox-*.js.map
+frontend/public/sw.js
+frontend/public/registerSW.js
