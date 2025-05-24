@@ -4,6 +4,9 @@ import { setupCounter } from './counter.ts'
 import { getUsers } from './users.ts'
 import type { User } from './types/user.ts'
 
+// Store the install prompt event
+let deferredPrompt: any;
+
 // Register service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
@@ -15,11 +18,17 @@ if ('serviceWorker' in navigator) {
     })
 }
 
-// Log when PWA is installable
+// Handle PWA installation
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault()
-  console.log('PWA is installable!')
+  // Store the event for later use
+  deferredPrompt = e
+  // Show the install button
+  const installButton = document.getElementById('install-button')
+  if (installButton) {
+    installButton.style.display = 'block'
+  }
 })
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -28,11 +37,41 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
+    <div class="install-container">
+      <button id="install-button" style="display: none">Install App</button>
+    </div>
     <div id="users">
       <ul><!-- users will be displayed here --></ul>
     </div>
   </div>
 `
+
+// Add install button handler
+const installButton = document.getElementById('install-button')
+if (installButton) {
+  installButton.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      // Show the prompt
+      deferredPrompt.prompt()
+      // Wait for the user to respond to the prompt
+      const { outcome } = await deferredPrompt.userChoice
+      console.log(`User response to the install prompt: ${outcome}`)
+      // Clear the deferredPrompt variable
+      deferredPrompt = null
+      // Hide the install button
+      installButton.style.display = 'none'
+    }
+  })
+}
+
+// Hide install button when PWA is installed
+window.addEventListener('appinstalled', () => {
+  console.log('PWA was installed')
+  const installButton = document.getElementById('install-button')
+  if (installButton) {
+    installButton.style.display = 'none'
+  }
+})
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
