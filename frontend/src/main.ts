@@ -38,7 +38,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <button id="counter" type="button"></button>
     </div>
     <div class="install-container">
-      <button id="install-button" style="display: none">Install App</button>
+      <!-- <button id="install-button" style="display: none">Install App</button> -->
+      <button id="install-button">Install</button>
     </div>
     <div id="users">
       <ul><!-- users will be displayed here --></ul>
