@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "serve:go": "cd .. && air",
+    "serve:vite": "vite",
+    "dev": "concurrently \"npm run serve:go\" \"npm run serve:vite\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@types/mithril": "^2.2.7",
+    "mithril": "^2.3.0"
+  }
+}
