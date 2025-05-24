@@ -38,7 +38,6 @@ setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 // Fetch and display users
 getUsers().then(result => {
-  console.log(result)
   const usersList = document.querySelector('#users ul')!
   usersList.innerHTML = result.users.map((user: User) => {
     return `<li class="user-item">${user.first_name} ${user.last_name}</li>`

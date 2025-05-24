@@ -3,6 +3,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   server: {
+    host: true, // Listen on all addresses
+    port: 5173,
+    strictPort: true, // Don't try other ports if 5173 is taken
     proxy: {
       '/api': {
         target: 'http://localhost:8000',
@@ -10,11 +13,8 @@ export default defineConfig({
       }
     },
     hmr: {
-      host: 'localhost',
-      protocol: 'ws'
-    },
-    watch: {
-      usePolling: true
+      clientPort: 5173,
+      host: 'localhost'
     }
   },
   plugins: [

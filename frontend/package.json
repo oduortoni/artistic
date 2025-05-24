@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "serve:go": "cd .. && air",
-    "serve:vite": "vite --host",
+    "serve:vite": "vite --host --port 5173 --strictPort",
     "dev": "concurrently \"npm run serve:go\" \"npm run serve:vite\""
   },
   "devDependencies": {
