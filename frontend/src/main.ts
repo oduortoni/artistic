@@ -60,7 +60,7 @@ if (installButton) {
       // Clear the deferredPrompt variable
       deferredPrompt = null
       // Hide the install button
-      installButton.style.display = 'none'
+      // installButton.style.display = 'none'
     }
   })
 }
@@ -70,7 +70,7 @@ window.addEventListener('appinstalled', () => {
   console.log('PWA was installed')
   const installButton = document.getElementById('install-button')
   if (installButton) {
-    installButton.style.display = 'none'
+    // installButton.style.display = 'none'
   }
 })
 
