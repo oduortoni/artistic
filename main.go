@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"net"
 	"os"
 	"strconv"
 
@@ -16,6 +18,26 @@ func init() {
 			beego.BConfig.Listen.HTTPPort = p
 		}
 	}
+
+	// If default port is taken, try to find an available port
+	if !isPortAvailable(beego.BConfig.Listen.HTTPPort) {
+		for port := 8001; port < 8100; port++ {
+			if isPortAvailable(port) {
+				beego.BConfig.Listen.HTTPPort = port
+				fmt.Printf("Port %d is in use, switching to port %d\n", 8000, port)
+				break
+			}
+		}
+	}
+}
+
+func isPortAvailable(port int) bool {
+	ln, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
+	if err != nil {
+		return false
+	}
+	ln.Close()
+	return true
 }
 
 func parsePort(port string) int {
