@@ -7,7 +7,7 @@ npm run build
 cd ..
 
 echo "Building backend..."
-go build -tags netgo -ldflags '-s -w' -o rtstk
+go build -tags netgo -ldflags '-s -w' -o app
 
 echo "Build complete!"
 echo "To run the application:"
