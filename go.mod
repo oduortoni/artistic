@@ -1,4 +1,4 @@
-module artistic
+module rtstk
 
 go 1.23
 

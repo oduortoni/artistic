@@ -1,14 +1,14 @@
-# Artistic
+# Rtstk
 
 A web application built with Go (Beego) backend and TypeScript + Vite frontend.
 
 ## Description
 
-A website for artistic people to showcase their creative works. More like the github for artists, only there are no commandline tools to "push" your art, but who knows, maye we can get artists to push pictures to display some day. That was a joke by the way.
+Rtstk is a website for artistic people to showcase their creative works. More like the github for artists, only there are no commandline tools to "push" your art, but who knows, maybe we could one day get artists to push pictures on display. That was a joke by the way.
 
 ## Technologies in use
 
-Artistic is a modern web application that integrates a Go backend using the Beego framework with a TypeScript frontend powered by Vite. The application features hot-reloading for both frontend and backend development, making it ideal for rapid development cycles.
+Rtstk (read artistic) is a modern web application that integrates a Go backend using the Beego framework with a TypeScript frontend powered by Vite. The application features hot-reloading for both frontend and backend development, making it ideal for rapid development cycles.
 
 ## Prerequisites
 
@@ -20,8 +20,8 @@ Artistic is a modern web application that integrates a Go backend using the Beeg
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/oduortoni/artistic.git
-   cd artistic
+   git clone https://github.com/oduortoni/rtstk.git
+   cd rtstk
    ```
 
 2. Install Go dependencies:
@@ -61,12 +61,12 @@ This will start:
 
 2. Build the Go application:
    ```bash
-   go build -o artistic
+   go build -o rtstk
    ```
 
 3. Run the production server:
    ```bash
-   ./artistic
+   ./rtstk
    ```
 
 The production server will serve:
@@ -76,7 +76,7 @@ The production server will serve:
 ## Project Structure
 
 ```
-artistic/
+rtstk/
 ├── controllers/     # Backend API controllers
 ├── models/         # Database models
 ├── routers/        # API route definitions

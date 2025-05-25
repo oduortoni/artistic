@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"artistic/backend/models"
+	"rtstk/backend/models"
 
 	beego "github.com/beego/beego/v2/server/web"
 )
