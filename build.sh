@@ -7,12 +7,12 @@ npm run build
 cd ..
 
 echo "Building backend..."
-go build -tags netgo -ldflags '-s -w' -o app
+go build -tags netgo -ldflags '-s -w' -o rtstk
 
 echo "Build complete!"
 echo "To run the application:"
 echo "1. With default port (8000):"
-echo "   ./app"
+echo "   ./rtstk"
 echo "2. With custom port:"
-echo "   PORT=<port> ./app"
-echo "Eg: PORT=3000 ./app" 
+echo "   PORT=<port> ./rtstk"
+echo "Eg: PORT=3000 ./rtstk" 

@@ -4,7 +4,7 @@ import (
 	"os"
 	"strconv"
 
-	_ "artistic/routers"
+	_ "rtstk/routers"
 
 	beego "github.com/beego/beego/v2/server/web"
 )
